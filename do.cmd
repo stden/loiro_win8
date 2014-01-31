@@ -6,5 +6,6 @@ git commit -a -m"%COMPUTERNAME%"
 git checkout master
 git pull
 git clean -f
-git remote add origin https://github.com/stden/loiro_win8.git
+rem git remote add origin https://github.com/stden/loiro_win8.git
+rem git push -u origin master
 git push -u origin master
