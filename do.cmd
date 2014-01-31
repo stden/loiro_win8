@@ -1,10 +1,10 @@
 @echo off
 
-echo ┬ъы■ўр■ DHCP ўЄюс√ ЁрсюЄры ╚эЄхЁэхЄ
+echo Включаю DHCP чтобы работал Интернет
 netsh interface ip set address "Local Area Connection" dhcp
-netsh interface ip set address "╧юфъы■ўхэшх яю ыюъры№эющ ёхЄш" dhcp
+netsh interface ip set address "Подключение по локальной сети" dhcp
 
-echo ═рёЄЁрштрхь git
+echo Настраиваем git
 git config --global user.email "super.denis@gmail.com"
 git config --global user.name "Denis Stepulenok"
 git config --global push.default simple
@@ -15,30 +15,30 @@ git pull
 git clean -f
 rem git push
 
-echo ╤ючфрЄ№ яюы№чютрЄхы  olymp ё ярЁюыхь olymp
+echo Создать пользователя olymp с паролем olymp
 net user olymp olymp /ADD
-echo ╤ючфрэшх ърЄрыюур C:\work
+echo Создание каталога C:\work
 mkdir C:\work
 rmdir C:\.dist /q/s
 rmdir C:\olymp /q/s
 
 if exist "C:\soft\Delphi7\Bin\delphi32.exe" (
-    rem ╤ЄрЁ√щ Delphi ё яЁхф√фє∙хую уюфр
+    rem Старый Delphi с предыдущего года
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v DELPHI /t REG_SZ /d "C:\soft\Delphi7" /f
 ) else (
-    rem ═ют√щ Delphi
+    rem Новый Delphi
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v DELPHI /t REG_SZ /d "C:\Program Files\Borland\Delphi7" /f
 )
 
 if exist "C:\soft\vs-2005\Common7\IDE\VCExpress.exe" (
-    rem ╤ЄрЁ√щ Visual C++ ё яЁхф√фє∙хую уюфр
+    rem Старый Visual C++ с предыдущего года
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v VS2005 /t REG_SZ /d "C:\soft\vs-2005" /f
 ) else (
-    rem ═ют√щ Visual C++
+    rem Новый Visual C++
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v VS2005 /t REG_SZ /d "C:\Program Files\Microsoft Visual Studio 8" /f
 )
 
-echo ┬Ёхьхээ√щ ърЄрыюу C:\temp
+echo Временный каталог C:\temp
 mkdir C:\temp
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TEMP /t REG_SZ /d "C:\temp" /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TMP /t REG_SZ /d "C:\temp" /f
